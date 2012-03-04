@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Wimax Widget -->
+    <string name="wimax_gadget_title">4G Toggle</string>
+
+    <!-- Wifi Widget -->
+    <string name="wifi_gadget_title">WiFi Toggle</string>
+
+    <!-- Bluetooth Widget -->
+    <string name="bluetooth_gadget_title">Bluetooth Toggle</string>
+
+    <!-- GPS Widget -->
+    <string name="gps_gadget_title">GPS Toggle</string>
+
+    <!-- Sync Widget -->
+    <string name="sync_gadget_title">Sync Toggle</string>
+
+    <!-- Brightness Widget -->
+    <string name="brightness_gadget_title">Brightness Toggle</string>
+
+    <!-- Orientation Widget -->
+    <string name="airplanemode_gadget_title">Airplane Mode Toggle</string>
+
+    <!-- Orientation Widget -->
+    <string name="auto_rotate_gadget_title">Auto-Rotate Toggle</string>
+
+    <!-- Hotspot Widget -->
+    <string name="hotspot_gadget_title">Hotspot Toggle</string>
+
+    <!-- Tether Widget -->
+    <string name="tether_gadget_title">USB Tether Toggle</string>
+
+    <!-- Mobile Data Widget -->
+    <string name="mobile_data_gadget_title">Mobile Data Toggle</string>
+</resources>
