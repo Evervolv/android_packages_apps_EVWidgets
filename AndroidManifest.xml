@@ -73,7 +73,18 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
-                <action android:name="com.evervolv.widget.WIFIAP_CLICKED"/>
+                <action android:name="com.evervolv.widgets.WIFIAP_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
+        	<!-- Airplane Mode standalone widget -->
+        <receiver android:name=".AirplaneModeWidgetProvider"
+                android:label="@string/airplane_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.evervolv.widget.AIRPLANEMODE_CLICKED"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>

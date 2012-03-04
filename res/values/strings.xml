@@ -19,7 +19,7 @@
     <string name="brightness_gadget_title">Brightness Toggle</string>
 
     <!-- Orientation Widget -->
-    <string name="airplanemode_gadget_title">Airplane Mode Toggle</string>
+    <string name="airplane_gadget_title">Airplane Mode Toggle</string>
 
     <!-- Orientation Widget -->
     <string name="auto_rotate_gadget_title">Auto-Rotate Toggle</string>
