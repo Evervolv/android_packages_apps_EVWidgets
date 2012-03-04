@@ -15,6 +15,8 @@
     <uses-permission android:name="android.permission.SET_ORIENTATION" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <uses-sdk android:minSdkVersion="10" />
 
@@ -85,6 +87,16 @@
                 <action android:name="com.evervolv.widget.AIRPLANEMODE_CLICKED"/>
                 <action android:name="android.intent.action.AIRPLANE_MODE"/>
 
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
+		<!-- Bluetooth standalone widget -->
+        <receiver android:name=".BluetoothWidgetProvider"
+                android:label="@string/bluetooth_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="com.evervolv.widgets.BLUETOOTH_CLICKED"/>
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
         </receiver>
