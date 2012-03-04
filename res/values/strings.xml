@@ -25,7 +25,7 @@
     <string name="auto_rotate_gadget_title">Auto-Rotate Toggle</string>
 
     <!-- Hotspot Widget -->
-    <string name="hotspot_gadget_title">Hotspot Toggle</string>
+    <string name="wifiap_gadget_title">Wifi Tether Toggle</string>
 
     <!-- Tether Widget -->
     <string name="tether_gadget_title">USB Tether Toggle</string>
