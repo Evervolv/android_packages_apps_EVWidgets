@@ -19,7 +19,7 @@
     android:id="@+id/widget_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@*android:drawable/notify_panel_notification_icon_bg_tile">
+    android:background="@drawable/widget_background">
 
     <ImageView android:id="@+id/widget_icon"
         android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
-        android:background="?android:attr/listChoiceBackgroundIndicator">
+        android:background="@drawable/list_selector_holo_dark">
     </LinearLayout>
 
     <ImageView android:id="@+id/widget_indic"
