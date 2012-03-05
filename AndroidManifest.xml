@@ -29,7 +29,7 @@
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
                 <action android:name="com.evervolv.widgets.WIFI_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_wifi_info" />
         </receiver>
 		<!-- Sync standalone widget -->
         <receiver android:name=".SyncWidgetProvider"
@@ -39,7 +39,7 @@
                 <action android:name="com.evervolv.widgets.SYNC_CLICKED"/>
                  <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_sync_info" />
         </receiver>
         <!-- Mobile data toggle standalone widget -->
         <receiver android:name=".MobileDataWidgetProvider"
@@ -49,7 +49,7 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.evervolv.widgets.MOBILE_DATA_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_mobile_data_info" />
         </receiver>
         <!-- Auto Rotate standalone widget -->
         <receiver android:name=".AutoRotateWidgetProvider"
@@ -58,7 +58,7 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.evervolv.widgets.AUTOROTATE_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_auto_rotate_info" />
         </receiver>
 		<!-- GPS standalone widget -->
         <receiver android:name=".GpsWidgetProvider"
@@ -69,7 +69,7 @@
                 <action android:name="com.evervolv.widgets.GPS_CLICKED"/>
                 <action android:name="android.location.PROVIDERS_CHANGED" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_gps_info" />
         </receiver>
 		<!-- Tether standalone widget -->
         <receiver android:name=".WifiApWidgetProvider"
@@ -79,7 +79,7 @@
                 <action android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
                 <action android:name="com.evervolv.widgets.WIFIAP_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_wifiap_info" />
         </receiver>
         	<!-- Airplane Mode standalone widget -->
         <receiver android:name=".AirplaneModeWidgetProvider"
@@ -90,7 +90,7 @@
                 <action android:name="android.intent.action.AIRPLANE_MODE"/>
 
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_airplane_info" />
         </receiver>
 		<!-- Bluetooth standalone widget -->
         <receiver android:name=".BluetoothWidgetProvider"
@@ -101,7 +101,7 @@
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
                 <action android:name="com.evervolv.widgets.BLUETOOTH_CLICKED"/>
             </intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_bluetooth_info"/>
         </receiver>
     </application>
 </manifest>

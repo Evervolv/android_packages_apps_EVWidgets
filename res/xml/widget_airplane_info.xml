@@ -18,5 +18,6 @@
     android:minWidth="60dip"
     android:minHeight="60dip"
     android:initialLayout="@layout/power_widget"
+    android:previewImage="@drawable/preview_airplane"
     >
 </appwidget-provider>
