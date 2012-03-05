@@ -75,7 +75,9 @@ public class AutoRotateWidgetProvider  extends AppWidgetProvider{
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context,appWidgetIds);
         if (DBG) Log.d(TAG,"Received request to remove a widget");
-        mObserver.unobserve();
+        if (mObserver != null) {
+            mObserver.unobserve();
+        }
     }
 
     @Override
