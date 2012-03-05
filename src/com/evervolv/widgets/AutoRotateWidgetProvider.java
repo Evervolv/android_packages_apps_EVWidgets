@@ -68,7 +68,9 @@ public class AutoRotateWidgetProvider  extends AppWidgetProvider{
                 ".AutoRotateWidgetProvider"),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager
                 .DONT_KILL_APP);
-        mObserver.unobserve();
+        if (mObserver != null) {
+            mObserver.unobserve();
+        }
     }
 
     @Override
