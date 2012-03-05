@@ -43,7 +43,8 @@
         </receiver>
         <!-- Mobile data toggle standalone widget -->
         <receiver android:name=".MobileDataWidgetProvider"
-                android:label="@string/mobile_data_gadget_title">
+                android:label="@string/mobile_data_gadget_title"
+                android:enabled="@bool/config_has_mobile_data">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.evervolv.widgets.MOBILE_DATA_CLICKED"/>
@@ -61,7 +62,8 @@
         </receiver>
 		<!-- GPS standalone widget -->
         <receiver android:name=".GpsWidgetProvider"
-                android:label="@string/gps_gadget_title">
+                android:label="@string/gps_gadget_title"
+                android:enabled="@bool/config_has_gps">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="com.evervolv.widgets.GPS_CLICKED"/>
@@ -92,7 +94,8 @@
         </receiver>
 		<!-- Bluetooth standalone widget -->
         <receiver android:name=".BluetoothWidgetProvider"
-                android:label="@string/bluetooth_gadget_title">
+                android:label="@string/bluetooth_gadget_title"
+                android:enabled="@bool/config_has_bluetooth">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />

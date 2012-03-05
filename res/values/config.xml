@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <bool name="config_has_gps" translatable="false">true</bool>
+    <bool name="config_has_wimax" translatable="false">false</bool>
+    <bool name="config_has_bluetooth" translatable="false">true</bool>
+    <bool name="config_has_mobile_data" translatable="false">true</bool>
+</resources>
