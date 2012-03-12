@@ -16,8 +16,12 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <uses-sdk android:minSdkVersion="10" />
+<!--
+    <uses-permission android:name="android.permission.ACCESS_4G_RADIO_DISABLE" />
+    <uses-permission android:name="android.permission.ACCESS_4G_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_4G_STATE" />
+-->
+    <uses-sdk android:minSdkVersion="14" />
 
     <application>
 		<!-- Wifi standalone widget -->
@@ -110,5 +114,19 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_bluetooth_info"/>
         </receiver>
+		<!-- Wimax standalone widget -->
+        <receiver android:name=".WimaxWidgetProvider"
+                android:label="@string/wimax_gadget_title"
+                android:enabled="@bool/config_has_wimax"
+                android:icon="@drawable/icon_wimax">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.net.fourG.NET_4G_STATE_CHANGED" />
+                <action android:name="com.htc.net.wimax.WIMAX_ENABLED_CHANGED" />
+                <action android:name="com.evervolv.widgets.WIMAX_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_wimax_info"/>
+        </receiver>
+
     </application>
 </manifest>
