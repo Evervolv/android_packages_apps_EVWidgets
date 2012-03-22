@@ -13,8 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<FrameLayout 
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widget_layout"
     android:layout_width="match_parent"
@@ -23,17 +22,10 @@
 
     <ImageView android:id="@+id/widget_icon"
         android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center|top">
     </ImageView>
-
-    <TextView android:id="@+id/widget_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_gravity="center">
-    </TextView>
 
     <LinearLayout
         android:id="@+id/widget_mask"
@@ -45,7 +37,8 @@
 
     <ImageView android:id="@+id/widget_indic"
         android:layout_width="match_parent"
-    	android:layout_height="15dp"
+        android:layout_height="15dp"
+        android:scaleType="fitXY"
         android:layout_gravity="bottom">
     </ImageView>
 
