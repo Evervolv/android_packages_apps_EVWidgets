@@ -23,7 +23,7 @@
     <ImageView android:id="@+id/widget_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center|top">
     </ImageView>
 
@@ -37,7 +37,7 @@
 
     <ImageView android:id="@+id/widget_indic"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="15dp"
         android:scaleType="fitXY"
         android:layout_gravity="bottom">
     </ImageView>

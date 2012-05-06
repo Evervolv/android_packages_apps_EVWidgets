@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.ACCESS_4G_STATE" />
     <uses-permission android:name="android.permission.CHANGE_4G_STATE" />
 
-    <uses-sdk android:minSdkVersion="14" />
+    <uses-sdk android:targetSdkVersion="10" />
 
     <application>
 		<!-- Wifi standalone widget -->
