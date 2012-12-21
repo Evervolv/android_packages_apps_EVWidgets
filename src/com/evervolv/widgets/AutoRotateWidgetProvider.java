@@ -195,7 +195,7 @@ public class AutoRotateWidgetProvider  extends AppWidgetProvider{
         }
 
         @Override
-        public void onChange(boolean selfChange, Uri uri) {
+        public void onChangeUri(Uri uri, boolean selfChange) {
             updateWidgetView(mContext, getAutoRotationState(mContext) ? 1 : 0);
         }
     }
