@@ -136,8 +136,8 @@ public class AirplaneModeWidgetProvider extends AppWidgetProvider{
      * @return true if enabled.
      */
     private static boolean getAirplaneModeState(Context context) {
-        return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.AIRPLANE_MODE_ON, 0) == 1;
+        return Settings.Global.getInt(context.getContentResolver(),
+                Settings.Global.AIRPLANE_MODE_ON, 0) == 1;
     }
 
     /**
@@ -147,7 +147,7 @@ public class AirplaneModeWidgetProvider extends AppWidgetProvider{
      */
     public void toggleState(Context context) {
         boolean state = getAirplaneModeState(context);
-        Settings.System.putInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON,
+        Settings.Global.putInt(context.getContentResolver(), Settings.Global.AIRPLANE_MODE_ON,
                 state ? 0 : 1);
         // notify change
         Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
