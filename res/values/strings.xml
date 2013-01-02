@@ -33,6 +33,9 @@
     <!-- Mobile Data Widget -->
     <string name="mobile_data_gadget_title">Mobile Data Toggle</string>
 
+    <!-- Go To Sleep Widget -->
+    <string name="go_to_sleep_gadget_title">Go To Sleep</string>
+
     <!-- Lockscreen Dialpad Widget -->
     <string name="phone_lock_title">Dialpad</string>
     <string name="num_one">1</string>
@@ -47,4 +50,5 @@
     <string name="num_zero">0</string>
     <string name="num_star">*</string>
     <string name="num_hash">#</string>
+
 </resources>
