@@ -41,8 +41,8 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context){
 		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName("com.evervolv.widgets",
-                ".widget.MobileDataWidgetProvider"),
+        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
+                MobileDataWidgetProvider.class.getName()),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
     }
 
@@ -50,8 +50,8 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
     public void onDisabled(Context context) {
     	if (DBG) Log.d(TAG,"Received request to remove last widget");
         PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName("com.evervolv.widgets",
-                ".widget.MobileDataWidgetProvider"),
+        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
+                MobileDataWidgetProvider.class.getName()),
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
     }
 
