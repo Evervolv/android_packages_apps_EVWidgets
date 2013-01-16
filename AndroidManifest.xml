@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.CHANGE_4G_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIMAX_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIMAX_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <uses-sdk android:minSdkVersion="17"
               android:targetSdkVersion="17" />
@@ -130,6 +131,27 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_wimax_info"/>
         </receiver>
-
+        <!-- Dialpad widget -->
+        <receiver android:name="com.evervolv.widgets.DialpadWidgetProvider"
+                android:label="@string/phone_lock_title"
+                android:enabled="@bool/config_hasTelephony">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.evervolv.widgets.DIALPAD_ONE" />
+                <action android:name="com.evervolv.widgets.DIALPAD_TWO" />
+                <action android:name="com.evervolv.widgets.DIALPAD_THREE" />
+                <action android:name="com.evervolv.widgets.DIALPAD_FOUR" />
+                <action android:name="com.evervolv.widgets.DIALPAD_FIVE" />
+                <action android:name="com.evervolv.widgets.DIALPAD_SIX" />
+                <action android:name="com.evervolv.widgets.DIALPAD_SEVEN" />
+                <action android:name="com.evervolv.widgets.DIALPAD_EIGHT" />
+                <action android:name="com.evervolv.widgets.DIALPAD_NINE" />
+                <action android:name="com.evervolv.widgets.DIALPAD_ZERO" />
+                <action android:name="com.evervolv.widgets.DIALPAD_STAR" />
+                <action android:name="com.evervolv.widgets.DIALPAD_HASH" />
+                <action android:name="com.evervolv.widgets.DIALPAD_DELETE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_lock_phone" />
+        </receiver>
     </application>
 </manifest>

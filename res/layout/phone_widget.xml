@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialpad"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+         android:layout_height="0px"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         android:orientation="horizontal"
+         android:gravity="center">
+
+        <ImageButton android:id="@+id/dial"
+                    style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_dial"/>
+
+        <TextView
+            android:id="@+id/dialpad_text"
+            android:gravity="center"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:singleLine="true"
+            android:scaleType="fitXY"
+            android:scrollHorizontally="true"
+            android:textSize="20sp"/>
+
+        <ImageButton android:id="@+id/delete"
+                    style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_delete"/>
+    </LinearLayout>
+
+    <LinearLayout
+         android:layout_height="0px"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         android:orientation="horizontal"
+         android:gravity="center">
+
+        <ImageButton android:id="@+id/one" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_1_no_vm"/>
+        <ImageButton android:id="@+id/two" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_2"/>
+        <ImageButton android:id="@+id/three" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_3"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+         android:layout_height="0px"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         android:orientation="horizontal"
+         android:gravity="center">
+
+        <ImageButton android:id="@+id/four" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_4"/>
+        <ImageButton android:id="@+id/five" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_5" />
+        <ImageButton android:id="@+id/six" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_6" />
+    </LinearLayout>
+
+    <LinearLayout
+         android:layout_height="0px"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         android:orientation="horizontal"
+         android:gravity="center">
+
+        <ImageButton android:id="@+id/seven" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_7"/>
+        <ImageButton android:id="@+id/eight"
+            style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_8" />
+        <ImageButton android:id="@+id/nine" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_9"/>
+    </LinearLayout>
+
+    <LinearLayout
+         android:layout_height="0px"
+         android:layout_width="match_parent"
+         android:layout_weight="1"
+         android:orientation="horizontal"
+         android:gravity="center">
+
+        <ImageButton android:id="@+id/star" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_star"/>
+        <ImageButton android:id="@+id/zero" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_0_no_plus"/>
+        <ImageButton android:id="@+id/hash" style="@style/DialpadButtonStyle"
+            android:src="@drawable/dial_num_pound"/>
+    </LinearLayout>
+</LinearLayout>

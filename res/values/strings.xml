@@ -32,4 +32,19 @@
 
     <!-- Mobile Data Widget -->
     <string name="mobile_data_gadget_title">Mobile Data Toggle</string>
+
+    <!-- Lockscreen Dialpad Widget -->
+    <string name="phone_lock_title">Dialpad</string>
+    <string name="num_one">1</string>
+    <string name="num_two">2</string>
+    <string name="num_three">3</string>
+    <string name="num_four">4</string>
+    <string name="num_five">5</string>
+    <string name="num_six">6</string>
+    <string name="num_seven">7</string>
+    <string name="num_eight">8</string>
+    <string name="num_nine">9</string>
+    <string name="num_zero">0</string>
+    <string name="num_star">*</string>
+    <string name="num_hash">#</string>
 </resources>

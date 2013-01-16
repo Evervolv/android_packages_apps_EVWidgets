@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DialpadButtonStyle">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:background">@drawable/dialpad_num_background</item>
+        <item name="android:soundEffectsEnabled">false</item>
+    </style>
+</resources>
