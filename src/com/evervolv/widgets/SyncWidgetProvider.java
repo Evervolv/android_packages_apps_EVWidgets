@@ -24,7 +24,6 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -32,7 +31,7 @@ import android.widget.RemoteViews;
 
 import com.evervolv.widgets.R;
 
-public class SyncWidgetProvider extends AppWidgetProvider{
+public class SyncWidgetProvider extends AppWidgetProvider {
 
     private static final StateTracker sSyncState = new SyncStateTracker();
 
@@ -42,29 +41,6 @@ public class SyncWidgetProvider extends AppWidgetProvider{
     // Intent Actions
     public static String SYNC_STATE_CHANGED = "com.android.sync.SYNC_CONN_STATUS_CHANGED";
     public static String SYNC_CHANGED = "com.evervolv.widgets.SYNC_CLICKED";
-
-    @Override
-    public void onEnabled(Context context){
-		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                SyncWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-    	if (DBG) Log.d(TAG,"Received request to remove last widget");
-        PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                SyncWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context,appWidgetIds);
-        if (DBG) Log.d(TAG,"Received request to remove a widget");
-    }
 
     @Override
     public void onUpdate(Context context,
@@ -105,7 +81,7 @@ public class SyncWidgetProvider extends AppWidgetProvider{
 	*/
 	private void updateWidgetView(Context context,int state){
 
-	    Intent intent = new Intent(context, SyncWidgetProvider.class);
+	    Intent intent = new Intent(context, getClass());
 		intent.setAction(SYNC_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -123,7 +99,7 @@ public class SyncWidgetProvider extends AppWidgetProvider{
             views.setImageViewResource(R.id.widget_indic, 0);
 		}
 
-		ComponentName cn = new ComponentName(context, SyncWidgetProvider.class);
+		ComponentName cn = new ComponentName(context, getClass());
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 	}
 

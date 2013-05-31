@@ -98,72 +98,72 @@ public class DialpadWidgetProvider extends AppWidgetProvider {
         RemoteViews views = new RemoteViews(context.getPackageName(),
                 R.layout.phone_widget);
 
-        Intent intentOne = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentOne = new Intent(context, getClass());
         intentOne.setAction(DIALPAD_ONE);
         PendingIntent onePendingIntent = PendingIntent.getBroadcast(context,0,intentOne,0);
         views.setOnClickPendingIntent(R.id.one, onePendingIntent);
 
-        Intent intentTwo = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentTwo = new Intent(context, getClass());
         intentTwo.setAction(DIALPAD_TWO);
         PendingIntent twoPendingIntent = PendingIntent.getBroadcast(context,0,intentTwo,0);
         views.setOnClickPendingIntent(R.id.two, twoPendingIntent);
 
-        Intent intentThree = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentThree = new Intent(context, getClass());
         intentThree.setAction(DIALPAD_THREE);
         PendingIntent threePendingIntent = PendingIntent.getBroadcast(context,0,intentThree,0);
         views.setOnClickPendingIntent(R.id.three, threePendingIntent);
 
-        Intent intentFour = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentFour = new Intent(context, getClass());
         intentFour.setAction(DIALPAD_FOUR);
         PendingIntent fourPendingIntent = PendingIntent.getBroadcast(context,0,intentFour,0);
         views.setOnClickPendingIntent(R.id.four, fourPendingIntent);
 
-        Intent intentFive = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentFive = new Intent(context, getClass());
         intentFive.setAction(DIALPAD_FIVE);
         PendingIntent fivePendingIntent = PendingIntent.getBroadcast(context,0,intentFive,0);
         views.setOnClickPendingIntent(R.id.five, fivePendingIntent);
 
-        Intent intentSix = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentSix = new Intent(context, getClass());
         intentSix.setAction(DIALPAD_SIX);
         PendingIntent sixPendingIntent = PendingIntent.getBroadcast(context,0,intentSix,0);
         views.setOnClickPendingIntent(R.id.six, sixPendingIntent);
 
-        Intent intentSeven = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentSeven = new Intent(context, getClass());
         intentSeven.setAction(DIALPAD_SEVEN);
         PendingIntent sevenPendingIntent = PendingIntent.getBroadcast(context,0,intentSeven,0);
         views.setOnClickPendingIntent(R.id.seven, sevenPendingIntent);
 
-        Intent intentEight = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentEight = new Intent(context, getClass());
         intentEight.setAction(DIALPAD_EIGHT);
         PendingIntent eightPendingIntent = PendingIntent.getBroadcast(context,0,intentEight,0);
         views.setOnClickPendingIntent(R.id.eight, eightPendingIntent);
 
-        Intent intentNine = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentNine = new Intent(context, getClass());
         intentNine.setAction(DIALPAD_NINE);
         PendingIntent ninePendingIntent = PendingIntent.getBroadcast(context,0,intentNine,0);
         views.setOnClickPendingIntent(R.id.nine, ninePendingIntent);
 
-        Intent intentZero = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentZero = new Intent(context, getClass());
         intentZero.setAction(DIALPAD_ZERO);
         PendingIntent zeroPendingIntent = PendingIntent.getBroadcast(context,0,intentZero,0);
         views.setOnClickPendingIntent(R.id.zero, zeroPendingIntent);
 
-        Intent intentStar = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentStar = new Intent(context, getClass());
         intentStar.setAction(DIALPAD_STAR);
         PendingIntent starPendingIntent = PendingIntent.getBroadcast(context,0,intentStar,0);
         views.setOnClickPendingIntent(R.id.star, starPendingIntent);
 
-        Intent intentHash = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentHash = new Intent(context, getClass());
         intentHash.setAction(DIALPAD_HASH);
         PendingIntent hashPendingIntent = PendingIntent.getBroadcast(context,0,intentHash,0);
         views.setOnClickPendingIntent(R.id.hash, hashPendingIntent);
 
-        Intent intentDelete = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentDelete = new Intent(context, getClass());
         intentDelete.setAction(DIALPAD_DELETE);
         PendingIntent deletePendingIntent = PendingIntent.getBroadcast(context,0,intentDelete,0);
         views.setOnClickPendingIntent(R.id.delete, deletePendingIntent);
 
-        Intent intentDial = new Intent(context, DialpadWidgetProvider.class);
+        Intent intentDial = new Intent(context, getClass());
         intentDial.setAction(DIALPAD_DIAL);
         PendingIntent dialPendingIntent = PendingIntent.getBroadcast(context,0,intentDial,0);
         views.setOnClickPendingIntent(R.id.dial, dialPendingIntent);
@@ -204,7 +204,7 @@ public class DialpadWidgetProvider extends AppWidgetProvider {
         }
 
         views.setTextViewText(R.id.dialpad_text, mCurrentNumber);
-        ComponentName cn = new ComponentName(context, DialpadWidgetProvider.class);
+        ComponentName cn = new ComponentName(context, getClass());
         AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
     }
 }

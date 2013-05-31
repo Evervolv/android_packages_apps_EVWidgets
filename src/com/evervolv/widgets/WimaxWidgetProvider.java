@@ -22,7 +22,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -42,30 +41,6 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
     public static String WIMAX_CHANGED = "com.evervolv.widgets.WIMAX_CLICKED";
 
     private static final StateTracker sWimaxState = new WimaxStateTracker();
-
-    @Override
-    public void onEnabled(Context context){
-    	if (DBG) Log.d(TAG,"WimaxWidgetProvider::onEnabled");
-		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                WimaxWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-    	if (DBG) Log.d(TAG,"Received request to remove last widget");
-        PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                WimaxWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context,appWidgetIds);
-        if (DBG) Log.d(TAG,"Received request to remove a widget");
-    }
 
     @Override
     public void onUpdate(Context context,
@@ -124,7 +99,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
 	private void updateWidgetView(Context context, int state){
 
 		if (DBG) Log.d(TAG,"WimaxWidgetProvider::updateWidgetView");
-        Intent intent = new Intent(context, WimaxWidgetProvider.class);
+        Intent intent = new Intent(context, getClass());
 		intent.setAction(WIMAX_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -148,7 +123,7 @@ public class WimaxWidgetProvider extends AppWidgetProvider {
             views.setImageViewResource(R.id.widget_indic, 0);
         }
 
-    	ComponentName cn = new ComponentName(context, WimaxWidgetProvider.class);
+    	ComponentName cn = new ComponentName(context, getClass());
         AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 	}
 

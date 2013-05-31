@@ -22,7 +22,6 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -39,29 +38,6 @@ public class WifiApWidgetProvider extends AppWidgetProvider {
     public static String WIFIAP_CHANGED = "com.evervolv.widgets.WIFIAP_CLICKED";
 
     private static final StateTracker sWifiApState = new WifiApStateTracker();
-
-    @Override
-    public void onEnabled(Context context){
-		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                WifiApWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-    	if (DBG) Log.d(TAG,"Received request to remove last widget");
-        PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                WifiApWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context,appWidgetIds);
-        if (DBG) Log.d(TAG,"Received request to remove a widget");
-    }
 
     @Override
     public void onUpdate(Context context,
@@ -102,7 +78,7 @@ public class WifiApWidgetProvider extends AppWidgetProvider {
 	*/
 	private void updateWidgetView(Context context,int state){
 
-	    Intent intent = new Intent(context, WifiApWidgetProvider.class);
+	    Intent intent = new Intent(context, getClass());
 		intent.setAction(WIFIAP_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -126,7 +102,7 @@ public class WifiApWidgetProvider extends AppWidgetProvider {
             views.setImageViewResource(R.id.widget_indic, 0);
         }
 
-		ComponentName cn = new ComponentName(context, WifiApWidgetProvider.class);
+		ComponentName cn = new ComponentName(context, getClass());
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 	}
 

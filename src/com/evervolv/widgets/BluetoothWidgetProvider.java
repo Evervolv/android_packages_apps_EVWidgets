@@ -23,14 +23,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.evervolv.widgets.R;
 
-public class BluetoothWidgetProvider extends AppWidgetProvider  {
+public class BluetoothWidgetProvider extends AppWidgetProvider {
     // TAG
     public static final String TAG = "Evervolv_BTWidget";
     private boolean DBG = false;
@@ -39,29 +38,6 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
     public static String BLUETOOTH_CHANGED = "com.evervolv.widgets.BLUETOOTH_CLICKED";
 
     private static final StateTracker sBluetoothState = new BluetoothStateTracker();
-
-    @Override
-    public void onEnabled(Context context){
-		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                BluetoothWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-    	if (DBG) Log.d(TAG,"Received request to remove last widget");
-        PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                BluetoothWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context,appWidgetIds);
-        if (DBG) Log.d(TAG,"Received request to remove a widget");
-    }
 
     @Override
     public void onUpdate(Context context,
@@ -112,7 +88,7 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
 	*/
 	private void updateWidgetView(Context context,int state){
 
-	    Intent intent = new Intent(context, BluetoothWidgetProvider.class);
+	    Intent intent = new Intent(context, getClass());
 		intent.setAction(BLUETOOTH_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -136,7 +112,7 @@ public class BluetoothWidgetProvider extends AppWidgetProvider  {
             views.setImageViewResource(R.id.widget_indic, 0);
         }
 
-		ComponentName cn = new ComponentName(context, BluetoothWidgetProvider.class);
+		ComponentName cn = new ComponentName(context, getClass());
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 	}
 

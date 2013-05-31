@@ -23,7 +23,6 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -37,7 +36,7 @@ import android.widget.RemoteViews;
 
 import com.evervolv.widgets.R;
 
-public class AutoRotateWidgetProvider  extends AppWidgetProvider{
+public class AutoRotateWidgetProvider  extends AppWidgetProvider {
 
     // TAG
     public static final String TAG = "Evervolv_AutoRotateWidget";
@@ -53,21 +52,11 @@ public class AutoRotateWidgetProvider  extends AppWidgetProvider{
         mContext = context;
         mObserver = new WidgetSettingsObserver(new Handler());
         mObserver.observe();
-		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                AutoRotateWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager
-                .DONT_KILL_APP);
     }
 
     @Override
     public void onDisabled(Context context) {
         if (DBG) Log.d(TAG,"Received request to remove last widget");
-        PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                AutoRotateWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager
-                .DONT_KILL_APP);
         if (mObserver != null) {
             mObserver.unobserve();
         }
@@ -126,7 +115,7 @@ public class AutoRotateWidgetProvider  extends AppWidgetProvider{
 	*/
 	private void updateWidgetView(Context context, int state) {
 
-	    Intent intent = new Intent(context, AutoRotateWidgetProvider.class);
+	    Intent intent = new Intent(context, getClass());
 		intent.setAction(AUTOROTATE_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
 	            0, intent, 0);
@@ -144,8 +133,7 @@ public class AutoRotateWidgetProvider  extends AppWidgetProvider{
                     .drawable.widget_indic_on);
         }
 
-		ComponentName cn = new ComponentName(context,
-		        AutoRotateWidgetProvider.class);
+		ComponentName cn = new ComponentName(context, getClass());
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 	}
 

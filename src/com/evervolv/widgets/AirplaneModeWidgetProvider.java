@@ -22,43 +22,19 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.evervolv.widgets.R;
 
-public class AirplaneModeWidgetProvider extends AppWidgetProvider{
+public class AirplaneModeWidgetProvider extends AppWidgetProvider {
 
     // TAG
     public static final String TAG = "Evervolv_AirplaneModeWidget";
     private boolean DBG = false;
     // Intent Actions
     public static String AIRPLANEMODE_CHANGED = "com.evervolv.widgets.AIRPLANEMODE_CLICKED";
-
-    @Override
-    public void onEnabled(Context context){
-		PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                AirplaneModeWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-        if (DBG) Log.d(TAG,"Received request to remove last widget");
-        PackageManager pm = context.getPackageManager();
-        pm.setComponentEnabledSetting(new ComponentName(context.getPackageName(),
-                AirplaneModeWidgetProvider.class.getName()),
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context,appWidgetIds);
-        if (DBG) Log.d(TAG,"Received request to remove a widget");
-    }
 
     @Override
     public void onUpdate(Context context,
@@ -109,7 +85,7 @@ public class AirplaneModeWidgetProvider extends AppWidgetProvider{
 	*/
 	private void updateWidgetView(Context context,int state){
 
-	    Intent intent = new Intent(context, AirplaneModeWidgetProvider.class);
+	    Intent intent = new Intent(context, getClass());
 		intent.setAction(AIRPLANEMODE_CHANGED);
 	    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
 	    RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -125,7 +101,7 @@ public class AirplaneModeWidgetProvider extends AppWidgetProvider{
                     .drawable.widget_indic_on);
         }
 
-		ComponentName cn = new ComponentName(context, AirplaneModeWidgetProvider.class);
+		ComponentName cn = new ComponentName(context, getClass());
 		AppWidgetManager.getInstance(context).updateAppWidget(cn, views);
 	}
 
