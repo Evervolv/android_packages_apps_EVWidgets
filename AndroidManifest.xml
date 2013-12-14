@@ -162,5 +162,14 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_go_to_sleep_info" />
         </receiver>
+        <!-- Gobal Actions widget -->
+        <receiver android:name=".GlobalActionsWidgetProvider"
+            android:label="@string/global_actions_gadget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.evervolv.widgets.GLOBALACTIONS_CLICKED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_global_actions_info"/>
+        </receiver>
     </application>
 </manifest>
