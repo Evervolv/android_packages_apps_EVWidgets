@@ -24,8 +24,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.RemoteViews;
+
+import com.android.internal.telephony.ITelephony;
+import com.android.internal.util.Protocol;
 
 import com.evervolv.widgets.R;
 
@@ -111,14 +118,14 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
      * @return true if enabled.
      */
     private static boolean getDataState(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        try {
-            /* Make sure the state change propagates */
-            Thread.sleep(100);
-        } catch (java.lang.InterruptedException ie) {
+        IBinder b = ServiceManager.getService(Context.TELEPHONY_SERVICE);
+        if (b != null) {
+            try {
+                ITelephony it = ITelephony.Stub.asInterface(b);
+                return it.getDataEnabled();
+            } catch (RemoteException e) { }
         }
-        return cm.getMobileDataEnabled();
+        return false;
     }
 
     /**
@@ -126,16 +133,18 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
      */
     public void toggleState(Context context) {
         boolean enabled = getDataState(context);
-
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (enabled) {
-            cm.setMobileDataEnabled(false);
-        } else {
-        	cm.setMobileDataEnabled(true);
-
+        IBinder b = ServiceManager.getService(Context.TELEPHONY_SERVICE);
+        if (b != null) {
+            try {
+                ITelephony it = ITelephony.Stub.asInterface(b);
+                if (enabled) {
+                    it.setDataEnabled(false);
+                } else {
+                    it.setDataEnabled(true);
+                }
+            } catch (RemoteException e) { }
         }
     }
 
 }
+
