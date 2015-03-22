@@ -27,6 +27,7 @@ import android.net.wifi.WifiManager;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.RemoteViews;
@@ -43,6 +44,7 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
     // Intent Actions
     public static String MOBILE_DATA_STATE_CHANGED = "com.android.internal.telephony.MOBILE_DATA_CHANGED";
     public static String MOBILE_DATA_CHANGED = "com.evervolv.widgets.MOBILE_DATA_CLICKED";
+    private SubscriptionManager mSubscriptionManager;
 
     @Override
     public void onUpdate(Context context,
@@ -122,7 +124,7 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
         if (b != null) {
             try {
                 ITelephony it = ITelephony.Stub.asInterface(b);
-                return it.getDataEnabled();
+                return it.getDataEnabled(SubscriptionManager.getDefaultDataSubId());
             } catch (RemoteException e) { }
         }
         return false;
@@ -138,9 +140,9 @@ public class MobileDataWidgetProvider extends AppWidgetProvider {
             try {
                 ITelephony it = ITelephony.Stub.asInterface(b);
                 if (enabled) {
-                    it.setDataEnabled(false);
+                    it.setDataEnabled(SubscriptionManager.getDefaultDataSubId(), false);
                 } else {
-                    it.setDataEnabled(true);
+                    it.setDataEnabled(SubscriptionManager.getDefaultDataSubId(), true);
                 }
             } catch (RemoteException e) { }
         }
